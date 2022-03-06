@@ -1,3 +1,4 @@
+require('dotenv').config();
 const express = require('express');
 require('./src/db/connect');
 const app = express();
@@ -21,6 +22,6 @@ app.use('/text', require('./src/routers/text'));
 
 app.use(require('./src/middlewares/errorHandler'));
 
-app.listen(8000 || process.env.PORT,()=>{
-    console.log(`App is running on port 8000...`);
+app.listen(process.env.PORT,()=>{
+    console.log(`App is running on port ${process.env.PORT}...`);
 });
